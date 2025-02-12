@@ -1,0 +1,32 @@
+---
+import "../styles/link.css";
+
+interface Props {
+  href: string;
+  date: string;
+  title: string;
+  src: string;
+}
+
+const { href, date, title, src }: Props = Astro.props;
+---
+
+<a href={href} class="youtube-link-container" target="_blank">
+  <div class="link-content">
+    <span class="title">{title}</span>
+    <span class="date">{date}</span>
+  </div>
+  <div class="link-icon-container">
+    <img src={src} width="250" />
+  </div>
+</a>
+
+<!-- <iframe
+  width="1519"
+  height="526"
+  src="https://www.youtube.com/embed/6zd1_TTCG6s"
+  title='Elmira Helać-Mekić: "Pokušala sam se baviti djeci bliskim temama"'
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  referrerpolicy="strict-origin-when-cross-origin"
+  allowfullscreen></iframe> -->

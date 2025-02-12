@@ -1,0 +1,81 @@
+---
+import { Card } from "../components";
+import "../styles/books.css";
+
+const books = [
+  {
+    title: "Kamen",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio corrupti, eligendi qui repellat porro repudiandae, rem quos totam itaque maiores accusantium ratione perspiciatis, accusamus hic magnam cupiditate excepturi aut. Sit!",
+    imagePosition: "left",
+  },
+  {
+    title: "Kaldrma",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio corrupti, eligendi qui repellat porro repudiandae, rem quos totam itaque maiores accusantium ratione perspiciatis, accusamus hic magnam cupiditate excepturi aut. Sit!",
+    imagePosition: "right",
+  },
+  {
+    title: "Horozgrad",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio corrupti, eligendi qui repellat porro repudiandae, rem quos totam itaque maiores accusantium ratione perspiciatis, accusamus hic magnam cupiditate excepturi aut. Sit!",
+    imagePosition: "left",
+  },
+  {
+    title: "Psi s raskrsnice",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio corrupti, eligendi qui repellat porro repudiandae, rem quos totam itaque maiores accusantium ratione perspiciatis, accusamus hic magnam cupiditate excepturi aut. Sit!",
+    imagePosition: "right",
+  },
+  {
+    title: "Djetinjstvo jednog vremena",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio corrupti, eligendi qui repellat porro repudiandae, rem quos totam itaque maiores accusantium ratione perspiciatis, accusamus hic magnam cupiditate excepturi aut. Sit!",
+    imagePosition: "left",
+  },
+  {
+    title: "Mačak vegeterijanac & Žaba u štiklama",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio corrupti, eligendi qui repellat porro repudiandae, rem quos totam itaque maiores accusantium ratione perspiciatis, accusamus hic magnam cupiditate excepturi aut. Sit!",
+    imagePosition: "right",
+  },
+  {
+    title: "Sarajevska priča",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio corrupti, eligendi qui repellat porro repudiandae, rem quos totam itaque maiores accusantium ratione perspiciatis, accusamus hic magnam cupiditate excepturi aut. Sit!",
+    imagePosition: "left",
+  },
+];
+---
+
+<div id="books" class="section">
+  <div class="section-title">
+    <h1>Knjige</h1>
+    <i data-lucide="library-big" class="icon"></i>
+  </div>
+
+  {
+    books.map((book) => (
+      <Card>
+        <h2 slot="header">{book.title}</h2>
+        <div class="card-content" slot="content">
+          {book.imagePosition === "left" && (
+            <img
+              src="src/assets/Elmira-pocetna.jpg"
+              width="300px"
+              class="image-left"
+            />
+          )}
+          <p>{book.description}</p>
+          {book.imagePosition === "right" && (
+            <img
+              src="src/assets/Elmira-pocetna.jpg"
+              width="300px"
+              class="image-right"
+            />
+          )}
+        </div>
+      </Card>
+    ))
+  }
+</div>

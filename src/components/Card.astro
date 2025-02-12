@@ -1,0 +1,13 @@
+---
+import "../styles/card.css";
+---
+
+<div class="card">
+  <header class="card-header">
+    <slot name="header" />
+  </header>
+  <div class="card-header-underline"></div>
+  <div>
+    <slot name="content" />
+  </div>
+</div>

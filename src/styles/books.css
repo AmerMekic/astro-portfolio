@@ -1,0 +1,30 @@
+.card-content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  & p {
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    flex: 1;
+    min-width: 250px;
+  }
+
+  & img {
+    border-radius: 20px;
+    width: 300px;
+    height: auto;
+  }
+}
+
+h2 {
+  font-size: 1.7em;
+}
+
+.image-right {
+  margin-left: 50px;
+}
+
+.image-left {
+  margin-right: 50px;
+}

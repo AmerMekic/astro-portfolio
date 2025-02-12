@@ -1,0 +1,65 @@
+.youtube-link-container {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  padding: 10px;
+  position: relative;
+  overflow: hidden;
+  width: 333px;
+  height: 200px;
+  &:not(:last-child) {
+    margin-bottom: 50px;
+  }
+
+  &:hover::before {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  &::before {
+    content: "Pogledaj na YouTube";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(130, 5, 5, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-family: var(--font-header);
+    font-size: 1.2rem;
+    border-radius: 10px;
+    transform: scale(0);
+    opacity: 0;
+    transition:
+      transform 0.3s ease-out,
+      opacity 0.3s ease-out;
+    transform-origin: center;
+  }
+}
+
+.link-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  & .title {
+    font-size: 1.5rem;
+    font-weight: 100;
+    margin-bottom: 5px;
+    font-family: var(--font-header);
+    letter-spacing: 1px;
+  }
+  & .date {
+    font-size: 1rem;
+    font-weight: 100;
+    margin-bottom: 10px;
+    font-family: var(--font-header);
+    color: rgb(176, 176, 176);
+    letter-spacing: 1px;
+  }
+}
+
+.link-icon {
+  height: 50px;
+  width: 50px;
+  color: rgb(130, 5, 5);
+}

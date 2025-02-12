@@ -1,0 +1,35 @@
+.interviews-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  row-gap: 5rem;
+}
+
+.interview-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.interview-info {
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  & h3 {
+    font-family: var(--font-header);
+    font-weight: 900;
+    font-size: 1.3rem;
+    color: var(--text-color);
+  }
+  & p {
+    font-family: var(--font-article);
+    font-weight: 100;
+    font-size: 1rem;
+    color: rgba(62, 62, 62, 0.514);
+  }
+}
+
+iframe {
+  width: 100%;
+  aspect-ratio: 16/9;
+  height: auto;
+}
