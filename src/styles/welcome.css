@@ -8,6 +8,7 @@
   & .text {
     font-family: var(--font-article);
     font-size: 24px;
+    text-align: center;
   }
 
   & .img {
@@ -21,7 +22,7 @@
   }
 
   h1 {
-    font-size: 30px;
+    font-size: 1.9rem;
     color: var(--text-color);
     font-weight: 700;
   }

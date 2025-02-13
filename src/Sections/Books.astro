@@ -56,8 +56,17 @@ const books = [
 
   {
     books.map((book) => (
-      <Card>
-        <h2 slot="header">{book.title}</h2>
+      <Card imagePosition={book.imagePosition}>
+        <h2
+          class={
+            book.imagePosition === "left"
+              ? "card-title-left"
+              : "card-title-right"
+          }
+          slot="header"
+        >
+          {book.title}
+        </h2>
         <div class="card-content" slot="content">
           {book.imagePosition === "left" && (
             <img

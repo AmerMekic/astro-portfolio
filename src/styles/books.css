@@ -2,12 +2,15 @@
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  color: var(--text-color);
 
   & p {
     font-size: 1.2rem;
     letter-spacing: 1px;
     flex: 1;
     min-width: 250px;
+    text-align: center;
+    align-self: center;
   }
 
   & img {
@@ -19,6 +22,7 @@
 
 h2 {
   font-size: 1.7em;
+  color: var(--text-color);
 }
 
 .image-right {
@@ -27,4 +31,14 @@ h2 {
 
 .image-left {
   margin-right: 50px;
+}
+
+.card-title-left {
+  text-align: left;
+  padding-left: 20%;
+}
+
+.card-title-right {
+  text-align: right;
+  padding-right: 20%;
 }

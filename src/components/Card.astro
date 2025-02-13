@@ -1,12 +1,18 @@
 ---
 import "../styles/card.css";
+
+interface CardProps {
+  imagePosition?: "left" | "right";
+}
+
+const props: CardProps = Astro.props;
 ---
 
 <div class="card">
   <header class="card-header">
     <slot name="header" />
   </header>
-  <div class="card-header-underline"></div>
+  <div class={`card-header-underline ${props.imagePosition}`}></div>
   <div>
     <slot name="content" />
   </div>

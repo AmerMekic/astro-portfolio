@@ -14,7 +14,7 @@ links.forEach((link) => {
 
     setTimeout(() => {
       isClickScrolling = false;
-    }, 6000);
+    }, 500);
   });
 });
 
@@ -46,7 +46,7 @@ function highlightNavOnScroll() {
   const scrollPosition = window.scrollY;
 
   sections.forEach((section) => {
-    const sectionTop = section.offsetTop - 900;
+    const sectionTop = section.offsetTop - 500;
     const sectionBottom = sectionTop + section.offsetHeight;
     const sectionId = section.id;
 
@@ -77,7 +77,7 @@ function debounce(func, wait) {
 }
 
 // Wrap the scroll handler in a debounce
-const debouncedHighlightNav = debounce(highlightNavOnScroll, 50);
+const debouncedHighlightNav = debounce(highlightNavOnScroll, 20);
 
 // Add scroll event listener with debounced function
 window.addEventListener("scroll", debouncedHighlightNav);

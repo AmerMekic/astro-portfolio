@@ -38,6 +38,7 @@ body {
   --background-color: #f5f4c2;
   --background-color-transparent: #f5f4c2e1;
   --contact-background-color: #ffb01f;
+  /* --contact-background-color: #f8a221; */
   --box-shadow-color: #7b771471;
   /* Classes */
 }
@@ -58,7 +59,7 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 2px solid var(--text-color);
+  border-bottom: 4px solid var(--contact-background-color);
   color: var(--text-color);
   margin-bottom: 50px;
   & .icon {
