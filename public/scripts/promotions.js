@@ -1,4 +1,7 @@
 const imageElements = document.querySelectorAll(".image");
+const galleryElement = document.querySelector(".gallery");
+const counterElement = document.querySelector(".mobile-picture-counter");
+
 const images = [
   { src: "src/assets/Elmira-pocetna.jpg", alt: "Image 1" },
   { src: "src/assets/slika2.jpg", alt: "Image 2" },
@@ -96,7 +99,6 @@ function updateImages(direction = null) {
   }, 500);
 }
 
-// Add debouncing to prevent rapid clicking
 let isTransitioning = false;
 
 document.getElementById("prevButton")?.addEventListener("click", () => {
@@ -120,6 +122,45 @@ document.getElementById("nextButton")?.addEventListener("click", () => {
     isTransitioning = false;
   }, 500);
 });
+
+let touchStartX = 0;
+let touchEndX = 0;
+
+galleryElement?.addEventListener("touchstart", (e) => {
+  touchStartX = e.changedTouches[0].screenX;
+});
+
+galleryElement?.addEventListener("touchend", (e) => {
+  if (isTransitioning) return;
+
+  touchEndX = e.changedTouches[0].screenX;
+  handleSwipe();
+});
+
+function handleSwipe() {
+  const swipeThreshold = 50; // minimum distance for a swipe
+  const swipeDistance = touchEndX - touchStartX;
+
+  if (Math.abs(swipeDistance) < swipeThreshold) return; // Ignore small movements
+
+  if (swipeDistance > 0) {
+    if (currentIndex <= 0) return;
+    isTransitioning = true;
+    currentIndex--;
+    updateImages("prev");
+  } else {
+    if (currentIndex >= images.length - 1) return;
+    isTransitioning = true;
+    currentIndex++;
+    updateImages("next");
+  }
+
+  counterElement.textContent = `${currentIndex + 1} / ${images.length}`;
+
+  setTimeout(() => {
+    isTransitioning = false;
+  }, 500);
+}
 
 // Initialize the gallery
 window.addEventListener("load", () => {

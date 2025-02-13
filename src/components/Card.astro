@@ -5,15 +5,19 @@ interface CardProps {
   imagePosition?: "left" | "right";
 }
 
-const props: CardProps = Astro.props;
+const { imagePosition }: CardProps = Astro.props;
 ---
 
-<div class="card">
+<div class="card web-card">
   <header class="card-header">
     <slot name="header" />
   </header>
-  <div class={`card-header-underline ${props.imagePosition}`}></div>
+  <div class={`web-card-header-underline ${imagePosition}`}></div>
   <div>
     <slot name="content" />
   </div>
+</div>
+
+<div class="card mobile-card">
+  <slot name="mobile-content" />
 </div>

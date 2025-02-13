@@ -84,6 +84,17 @@ const books = [
             />
           )}
         </div>
+
+        {/* Mobile card */}
+        <div class="mobile-book-card" slot="mobile-content">
+          <img
+            class="mobile-image"
+            src="/assets/Elmira-pocetna.jpg"
+            width="100%"
+          />
+          <h2 class="mobile-title">{book.title}</h2>
+          <p class="mobile-description">{book.description}</p>
+        </div>
       </Card>
     ))
   }

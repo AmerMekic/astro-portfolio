@@ -102,3 +102,30 @@
   border-color: var(--border-color);
   transform: scale(1.3);
 }
+
+@media (max-width: 768px) {
+  .image {
+    width: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease-out; /* Faster transition for smoother swipe */
+  }
+  .dot {
+    display: none;
+  }
+  .controls {
+    display: none;
+  }
+  .gallery {
+    touch-action: pan-y pinch-zoom; /* Ensure touch behavior works on mobile */
+  }
+  .mobile-picture-counter {
+    position: absolute;
+    top: 0;
+    font-size: 1.8rem;
+    color: var(--text-color);
+    font-family: var(--font-article);
+    font-weight: 600;
+    text-align: center;
+    width: 100%;
+  }
+}

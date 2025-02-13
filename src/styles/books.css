@@ -42,3 +42,39 @@ h2 {
   text-align: right;
   padding-right: 20%;
 }
+
+@media (max-width: 768px) {
+  .mobile-book-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    & .mobile-description {
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+      text-align: center;
+      font-family: var(--font-article);
+      color: var(--text-color);
+    }
+
+    & .mobile-image {
+      border-radius: 20px;
+      margin-bottom: 20px;
+    }
+
+    & .mobile-title {
+      font-size: 1.6rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    & .mobile-description,
+    .mobile-title {
+      padding: 0 20px;
+      letter-spacing: 0.5px;
+    }
+  }
+}
