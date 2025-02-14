@@ -93,7 +93,11 @@ const books = [
   {
     books.map((book) => (
       <div
-        class="book-card"
+        class={
+          book.imagePosition === "left"
+            ? "book-card book-card-left"
+            : "book-card book-card-right"
+        }
         style={`--text-hover-color: ${getTextColor(book.color)};`}
       >
         <Card
@@ -143,3 +147,5 @@ const books = [
     ))
   }
 </section>
+
+<script src="../scripts/bookObserver.js" defer></script>

@@ -1,3 +1,7 @@
+:root {
+  --delay: 0.8s;
+}
+
 .welcome-message {
   margin: auto;
   height: calc(100vh - 75px);
@@ -6,12 +10,16 @@
   width: 1000px;
 
   & .text {
+    opacity: 0;
     font-family: var(--font-article);
     font-size: 24px;
     text-align: center;
+    animation: picture-animation 0.8s ease-in forwards;
+    animation-delay: var(--delay);
   }
 
   & .img {
+    opacity: 0;
     width: 500px;
     height: 500px;
     border-radius: 20%;
@@ -19,12 +27,17 @@
     float: left;
     margin-right: 50px;
     border: 2px solid var(--border-color);
+    animation: picture-animation 0.8s ease-in forwards;
+    animation-delay: var(--delay);
   }
 
   h1 {
+    opacity: 0;
     font-size: 1.9rem;
     color: var(--text-color);
     font-weight: 700;
+    animation: picture-animation 0.8s ease-in forwards;
+    animation-delay: var(--delay);
   }
 
   p {
@@ -56,5 +69,14 @@
       margin-bottom: 20px;
       border-radius: 0px;
     }
+  }
+}
+
+@keyframes picture-animation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }

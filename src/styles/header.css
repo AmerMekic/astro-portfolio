@@ -1,5 +1,5 @@
 .header {
-  width: 100%;
+  width: 0%;
   color: var(--text-color);
   text-align: center;
   margin: 0;
@@ -14,6 +14,7 @@
   z-index: 1000;
   background-color: var(--background-color-transparent);
   padding: 1rem;
+  animation: border-animation 0.3s ease-in-out forwards;
 }
 
 .link-container {
@@ -24,6 +25,7 @@
 }
 
 .link-item {
+  opacity: 0;
   text-decoration: none;
   cursor: pointer;
   display: flex;
@@ -31,6 +33,8 @@
   justify-content: center;
   font-size: 1.1rem;
   transition: margin 0.2s ease-out;
+  animation: header-animation 0.5s ease-in forwards;
+  animation-delay: calc(var(--delay) + 0.2s);
   &.active {
     color: rgb(36, 36, 36);
   }
@@ -77,5 +81,23 @@
     & .link-item {
       font-size: 1rem;
     }
+  }
+}
+
+@keyframes header-animation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes border-animation {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
   }
 }

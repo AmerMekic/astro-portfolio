@@ -3,7 +3,7 @@
   flex-direction: column;
   color: var(--text-color);
   align-items: start;
-  padding: 1em 0;
+  padding: 1rem 0;
   transition: background-color 0.3s ease;
   border-radius: 10px;
   position: relative;
@@ -35,14 +35,14 @@
 }
 
 .article-title {
-  font-size: 2em;
+  font-size: 2rem;
   font-weight: bold;
   font-family: var(--font-header);
   letter-spacing: 0.05em;
 }
 
 .article-date {
-  font-size: 1em;
+  font-size: 1rem;
   font-weight: bold;
   margin-bottom: 0.5em;
   font-family: var(--font-article);
