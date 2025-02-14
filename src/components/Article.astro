@@ -1,0 +1,16 @@
+---
+import "../styles/article.css";
+
+interface Props {
+  href: string;
+  date: string;
+  title: string;
+}
+
+const { href, date, title }: Props = Astro.props;
+---
+
+<a href={href} class="article-container" target="_blank">
+  <span class="article-date">{date}</span>
+  <span class="article-title">{title}</span>
+</a>

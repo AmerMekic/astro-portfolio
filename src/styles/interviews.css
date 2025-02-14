@@ -19,17 +19,42 @@
     font-weight: 900;
     font-size: 1.3rem;
     color: var(--text-color);
+    letter-spacing: 0.04em;
   }
   & p {
     font-family: var(--font-article);
-    font-weight: 100;
+    font-weight: bold;
     font-size: 1rem;
     color: rgba(62, 62, 62, 0.514);
+    letter-spacing: 0.05em;
   }
 }
 
-iframe {
+.video-thumbnail {
+  position: relative;
+  display: block;
   width: 100%;
   aspect-ratio: 16/9;
-  height: auto;
+}
+
+.video-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 50%;
+  padding: 1rem;
+  transition: background 0.2s ease;
+  color: white;
+}
+
+.video-thumbnail:hover .play-button {
+  background: #cd201f;
 }

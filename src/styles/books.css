@@ -1,9 +1,16 @@
+.book-card:hover {
+  * {
+    color: var(--text-hover-color);
+    transition: all 0.3s;
+  }
+}
+
 .card-content {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   color: var(--text-color);
-
+  z-index: 3;
   & p {
     font-size: 1.2rem;
     letter-spacing: 1px;

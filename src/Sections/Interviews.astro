@@ -6,21 +6,26 @@ const interviews = [
     title: "Radio Televizija Vogošća",
     date: "13.01.2025.",
     link: "https://www.youtube.com/watch?v=J2a8BCoO0yM",
+    thumbnail:
+      "https://i.ytimg.com/vi/J2a8BCoO0yM/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGGUgXChPMA8=&rs=AOn4CLDF_moIgACFYxIb-flQkJajVjukEw",
   },
   {
     title: "Televizija Sarajevo",
     date: "01.04.2024.",
     link: "https://www.youtube.com/watch?v=6zd1_TTCG6s",
+    thumbnail:
+      "https://i.ytimg.com/vi/6zd1_TTCG6s/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGEsgVihlMA8=&rs=AOn4CLCMUPL2IguURlPnMeJTzKyKXdalOw",
   },
   {
     title: "Hayat Media BiH",
     date: "05.12.2017.",
     link: "https://www.youtube.com/watch?v=z-hmcKT2V8E",
+    thumbnail: "https://i.ytimg.com/vi/z-hmcKT2V8E/hqdefault.jpg",
   },
 ];
 ---
 
-<!-- <div id="interviews" class="section">
+<section id="interviews" class="section">
   <div class="section-title">
     <h1>Intervjui</h1>
     <i class="icon" data-lucide="mic"></i>
@@ -34,17 +39,19 @@ const interviews = [
             <h3>{interview.title}</h3>
             <p>{interview.date}</p>
           </div>
-          <iframe
-            width="1000"
-            height="315"
-            src={interview.link.replace("watch?v=", "embed/")}
-            title={interview.title}
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen
-          />
+          <a
+            href={interview.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="video-thumbnail"
+          >
+            <img src={interview.thumbnail} alt={interview.title} />
+            <div class="play-button">
+              <i class="icon" data-lucide="play" />
+            </div>
+          </a>
         </div>
       ))
     }
   </div>
-</div> -->
+</section>

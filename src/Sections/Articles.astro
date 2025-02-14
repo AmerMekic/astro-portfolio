@@ -1,0 +1,33 @@
+---
+import { Article } from "../components";
+
+const articles = [
+  {
+    href: "https://bosnainfo.ba/sarajevska-prica-elmira-helac-mekic-objavila-strip-slikovnicu/",
+    date: "11.04.2024.",
+    title: "SARAJEVSKA PRIČA: Elmira Helać-Mekić objavila strip slikovnicu",
+  },
+  {
+    href: "https://www.rtvvogosca.ba/knjige-profesorice-i-knjizevnice-za-djecu-elmire-helac-mekic-uvrstene-u-skolsku-lektiru/",
+    date: "12.10.2022.",
+    title:
+      "KNJIGE PROFESORICE I KNJIŽEVNICE ZA DJECU ELMIRE HELAĆ – MEKIĆ UVRŠTENE U ŠKOLSKU LEKTIRU",
+  },
+  {
+    href: "https://www.rtvvogosca.ba/elmira-helac-mekic-nominovana-za-prestiznu-svjetsku-nagradu-za-djeciju-knjizevnost/",
+    date: "26.06.2021.",
+    title:
+      "ELMIRA HELAĆ-MEKIĆ NOMINOVANA ZA PRESTIŽNU SVJETSKU NAGRADU ZA DJEČIJU KNJIŽEVNOST",
+  },
+];
+---
+
+<section id="articles" class="section">
+  <div class="section-title">
+    <h1>Članci</h1>
+    <i data-lucide="file-text" class="icon"></i>
+  </div>
+  <div class="articles-container">
+    {articles.map((article) => <Article {...article} />)}
+  </div>
+</section>

@@ -5,3 +5,4 @@ export { default as AboutMe } from "./AboutMe.astro";
 export { default as Contact } from "./Contact.astro";
 export { default as Promotions } from "./Promotions.astro";
 export { default as Interviews } from "./Interviews.astro";
+export { default as Articles } from "./Articles.astro";

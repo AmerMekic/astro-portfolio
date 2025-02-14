@@ -3,12 +3,17 @@ import "../styles/card.css";
 
 interface CardProps {
   imagePosition?: "left" | "right";
+  effectBackgroundColor?: string;
 }
 
-const { imagePosition }: CardProps = Astro.props;
+const { imagePosition, effectBackgroundColor = "grey" }: CardProps =
+  Astro.props;
 ---
 
-<div class="card web-card">
+<div
+  class={`card web-card ${imagePosition}`}
+  style={`--card-bg-color: ${effectBackgroundColor};`}
+>
   <header class="card-header">
     <slot name="header" />
   </header>

@@ -2,53 +2,88 @@
 import { Card } from "../components";
 import "../styles/books.css";
 
+function getTextColor(backgroundColor: string) {
+  // Convert named colors to hex
+  const colorMap = {
+    yellow: "#FFEB3B",
+    orange: "#FF9800",
+    blue: "#2196F3",
+    purple: "#9C27B0",
+    green: "#4CAF50",
+    grey: "#9E9E9E",
+    red: "#F44336",
+  };
+
+  // Get hex color
+  const hex =
+    colorMap[backgroundColor as keyof typeof colorMap] || backgroundColor;
+
+  // Convert hex to RGB
+  const r = parseInt(hex.slice(1, 3), 16);
+  const g = parseInt(hex.slice(3, 5), 16);
+  const b = parseInt(hex.slice(5, 7), 16);
+
+  // Calculate brightness using the YIQ formula
+  const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+
+  // Return white for dark colors and black for light colors
+  return brightness > 128 ? "#353309" : "#E7E273";
+}
+
 const books = [
   {
     title: "Kamen",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio corrupti, eligendi qui repellat porro repudiandae, rem quos totam itaque maiores accusantium ratione perspiciatis, accusamus hic magnam cupiditate excepturi aut. Sit!",
     imagePosition: "left",
+    color: "yellow",
   },
   {
     title: "Kaldrma",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio corrupti, eligendi qui repellat porro repudiandae, rem quos totam itaque maiores accusantium ratione perspiciatis, accusamus hic magnam cupiditate excepturi aut. Sit!",
     imagePosition: "right",
+    color: "orange",
   },
   {
     title: "Horozgrad",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio corrupti, eligendi qui repellat porro repudiandae, rem quos totam itaque maiores accusantium ratione perspiciatis, accusamus hic magnam cupiditate excepturi aut. Sit!",
     imagePosition: "left",
+    color: "blue",
   },
   {
     title: "Psi s raskrsnice",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio corrupti, eligendi qui repellat porro repudiandae, rem quos totam itaque maiores accusantium ratione perspiciatis, accusamus hic magnam cupiditate excepturi aut. Sit!",
     imagePosition: "right",
+    color: "purple",
   },
   {
     title: "Djetinjstvo jednog vremena",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio corrupti, eligendi qui repellat porro repudiandae, rem quos totam itaque maiores accusantium ratione perspiciatis, accusamus hic magnam cupiditate excepturi aut. Sit!",
     imagePosition: "left",
+    color: "green",
   },
   {
     title: "Mačak vegeterijanac & Žaba u štiklama",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio corrupti, eligendi qui repellat porro repudiandae, rem quos totam itaque maiores accusantium ratione perspiciatis, accusamus hic magnam cupiditate excepturi aut. Sit!",
     imagePosition: "right",
+    color: "grey",
   },
   {
     title: "Sarajevska priča",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio corrupti, eligendi qui repellat porro repudiandae, rem quos totam itaque maiores accusantium ratione perspiciatis, accusamus hic magnam cupiditate excepturi aut. Sit!",
     imagePosition: "left",
+    color: "red",
   },
 ];
 ---
 
-<div id="books" class="section">
+<section id="books" class="section">
   <div class="section-title">
     <h1>Knjige</h1>
     <i data-lucide="library-big" class="icon"></i>
@@ -56,46 +91,54 @@ const books = [
 
   {
     books.map((book) => (
-      <Card imagePosition={book.imagePosition}>
-        <h2
-          class={
-            book.imagePosition === "left"
-              ? "card-title-left"
-              : "card-title-right"
-          }
-          slot="header"
+      <div
+        class="book-card"
+        style={`--text-hover-color: ${getTextColor(book.color)};`}
+      >
+        <Card
+          imagePosition={book.imagePosition}
+          effectBackgroundColor={book.color}
         >
-          {book.title}
-        </h2>
-        <div class="card-content" slot="content">
-          {book.imagePosition === "left" && (
-            <img
-              src="/assets/Elmira-pocetna.jpg"
-              width="300px"
-              class="image-left"
-            />
-          )}
-          <p>{book.description}</p>
-          {book.imagePosition === "right" && (
-            <img
-              src="/assets/Elmira-pocetna.jpg"
-              width="300px"
-              class="image-right"
-            />
-          )}
-        </div>
+          <h2
+            class={
+              book.imagePosition === "left"
+                ? "card-title-left"
+                : "card-title-right"
+            }
+            slot="header"
+          >
+            {book.title}
+          </h2>
+          <div class="card-content" slot="content">
+            {book.imagePosition === "left" && (
+              <img
+                src="/assets/Elmira-pocetna.jpg"
+                width="300px"
+                class="image-left"
+              />
+            )}
+            <p>{book.description}</p>
+            {book.imagePosition === "right" && (
+              <img
+                src="/assets/Elmira-pocetna.jpg"
+                width="300px"
+                class="image-right"
+              />
+            )}
+          </div>
 
-        {/* Mobile card */}
-        <div class="mobile-book-card" slot="mobile-content">
-          <img
-            class="mobile-image"
-            src="/assets/Elmira-pocetna.jpg"
-            width="100%"
-          />
-          <h2 class="mobile-title">{book.title}</h2>
-          <p class="mobile-description">{book.description}</p>
-        </div>
-      </Card>
+          {/* Mobile card */}
+          <div class="mobile-book-card" slot="mobile-content">
+            <img
+              class="mobile-image"
+              src="/assets/Elmira-pocetna.jpg"
+              width="100%"
+            />
+            <h2 class="mobile-title">{book.title}</h2>
+            <p class="mobile-description">{book.description}</p>
+          </div>
+        </Card>
+      </div>
     ))
   }
-</div>
+</section>
