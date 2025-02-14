@@ -2,17 +2,18 @@
 import { Card } from "../components";
 import "../styles/books.css";
 
+const colorMap = {
+  yellow: "#e6ca2f",
+  orange: "#E99F20",
+  blue: "#227BB3",
+  purple: "#912b81",
+  darkPurple: "#271B4E",
+  grey: "#9E9E9E",
+  lighterYellow: "#e3ce63",
+};
+
 function getTextColor(backgroundColor: string) {
   // Convert named colors to hex
-  const colorMap = {
-    yellow: "#FFEB3B",
-    orange: "#FF9800",
-    blue: "#2196F3",
-    purple: "#9C27B0",
-    green: "#4CAF50",
-    grey: "#9E9E9E",
-    red: "#F44336",
-  };
 
   // Get hex color
   const hex =
@@ -27,7 +28,7 @@ function getTextColor(backgroundColor: string) {
   const brightness = (r * 299 + g * 587 + b * 114) / 1000;
 
   // Return white for dark colors and black for light colors
-  return brightness > 128 ? "#353309" : "#E7E273";
+  return brightness > 128 ? "#353309" : colorMap.yellow;
 }
 
 const books = [
@@ -36,49 +37,49 @@ const books = [
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio corrupti, eligendi qui repellat porro repudiandae, rem quos totam itaque maiores accusantium ratione perspiciatis, accusamus hic magnam cupiditate excepturi aut. Sit!",
     imagePosition: "left",
-    color: "yellow",
+    color: colorMap.yellow,
   },
   {
     title: "Kaldrma",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio corrupti, eligendi qui repellat porro repudiandae, rem quos totam itaque maiores accusantium ratione perspiciatis, accusamus hic magnam cupiditate excepturi aut. Sit!",
     imagePosition: "right",
-    color: "orange",
+    color: colorMap.orange,
   },
   {
     title: "Horozgrad",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio corrupti, eligendi qui repellat porro repudiandae, rem quos totam itaque maiores accusantium ratione perspiciatis, accusamus hic magnam cupiditate excepturi aut. Sit!",
     imagePosition: "left",
-    color: "blue",
+    color: colorMap.yellow,
   },
   {
     title: "Psi s raskrsnice",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio corrupti, eligendi qui repellat porro repudiandae, rem quos totam itaque maiores accusantium ratione perspiciatis, accusamus hic magnam cupiditate excepturi aut. Sit!",
     imagePosition: "right",
-    color: "purple",
+    color: colorMap.blue,
   },
   {
     title: "Djetinjstvo jednog vremena",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio corrupti, eligendi qui repellat porro repudiandae, rem quos totam itaque maiores accusantium ratione perspiciatis, accusamus hic magnam cupiditate excepturi aut. Sit!",
     imagePosition: "left",
-    color: "green",
+    color: colorMap.darkPurple,
   },
   {
     title: "Mačak vegeterijanac & Žaba u štiklama",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio corrupti, eligendi qui repellat porro repudiandae, rem quos totam itaque maiores accusantium ratione perspiciatis, accusamus hic magnam cupiditate excepturi aut. Sit!",
     imagePosition: "right",
-    color: "grey",
+    color: colorMap.purple,
   },
   {
     title: "Sarajevska priča",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio corrupti, eligendi qui repellat porro repudiandae, rem quos totam itaque maiores accusantium ratione perspiciatis, accusamus hic magnam cupiditate excepturi aut. Sit!",
     imagePosition: "left",
-    color: "red",
+    color: colorMap.lighterYellow,
   },
 ];
 ---

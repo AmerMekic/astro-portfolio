@@ -1,6 +1,7 @@
 .book-card:hover {
   * {
     color: var(--text-hover-color);
+
     transition: all 0.3s;
   }
 }
