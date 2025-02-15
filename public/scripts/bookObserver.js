@@ -23,3 +23,9 @@ const observer = new IntersectionObserver(
 cards.forEach((card) => {
   observer.observe(card);
 });
+
+document.querySelectorAll(".mobile-card").forEach((card) => {
+  card.addEventListener("click", () => {
+    card.classList.toggle("flip");
+  });
+});

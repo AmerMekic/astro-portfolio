@@ -1,8 +1,9 @@
 .interviews-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(2, minmax(300px, 1fr));
   gap: 2rem;
   row-gap: 5rem;
+  overflow: hidden;
 }
 
 .interview-item {
@@ -11,15 +12,18 @@
 }
 
 .interview-info {
-  text-align: center;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
   & h3 {
     font-family: var(--font-header);
     font-weight: 900;
     font-size: 1.3rem;
     color: var(--text-color);
     letter-spacing: 0.04em;
+    text-align: start;
+    margin-bottom: 0px;
   }
   & p {
     font-family: var(--font-article);
@@ -57,4 +61,10 @@
 
 .video-thumbnail:hover .play-button {
   background: #cd201f;
+}
+
+@media (max-width: 768px) {
+  .interviews-grid {
+    grid-template-columns: repeat(1, minmax(300px, 1fr));
+  }
 }

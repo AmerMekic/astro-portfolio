@@ -27,9 +27,3 @@
 .icon-url:not(:last-child) {
   margin-right: 10px;
 }
-
-@media (max-width: 768px) {
-  .background {
-    margin-bottom: 60px;
-  }
-}

@@ -51,8 +51,9 @@ a {
   width: 1000px;
   margin: auto;
   margin-bottom: 100px;
-  padding: 0 20px;
+  padding: 0 10px;
   scroll-margin-top: 100px;
+  overflow-x: hidden;
 }
 
 .section-title {
@@ -71,5 +72,9 @@ a {
 @media (max-width: 1024px) {
   .section {
     width: 90%;
+  }
+
+  p {
+    font-size: 1em;
   }
 }

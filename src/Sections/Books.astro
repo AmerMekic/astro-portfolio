@@ -89,63 +89,62 @@ const books = [
     <h1>Knjige</h1>
     <i data-lucide="library-big" class="icon"></i>
   </div>
-
-  {
-    books.map((book) => (
-      <div
-        class={
-          book.imagePosition === "left"
-            ? "book-card book-card-left"
-            : "book-card book-card-right"
-        }
-        style={`--text-hover-color: ${getTextColor(book.color)};`}
-      >
-        <Card
-          imagePosition={book.imagePosition}
-          effectBackgroundColor={book.color}
+  <div class="mobile-book-card-grid">
+    {
+      books.map((book) => (
+        <div
+          class={
+            book.imagePosition === "left"
+              ? "book-card book-card-left"
+              : "book-card book-card-right"
+          }
+          style={`--text-hover-color: ${getTextColor(book.color)};`}
         >
-          <h2
-            class={
-              book.imagePosition === "left"
-                ? "card-title-left"
-                : "card-title-right"
-            }
-            slot="header"
+          <Card
+            imagePosition={book.imagePosition}
+            effectBackgroundColor={book.color}
           >
-            {book.title}
-          </h2>
-          <div class="card-content" slot="content">
-            {book.imagePosition === "left" && (
-              <img
-                src="/assets/Elmira-pocetna.jpg"
-                width="300px"
-                class="image-left"
-              />
-            )}
-            <p>{book.description}</p>
-            {book.imagePosition === "right" && (
-              <img
-                src="/assets/Elmira-pocetna.jpg"
-                width="300px"
-                class="image-right"
-              />
-            )}
-          </div>
+            <h2
+              class={
+                book.imagePosition === "left"
+                  ? "card-title-left"
+                  : "card-title-right"
+              }
+              slot="header"
+            >
+              {book.title}
+            </h2>
+            <div class="card-content" slot="content">
+              {book.imagePosition === "left" && (
+                <img
+                  src="/assets/Elmira-pocetna.jpg"
+                  width="300px"
+                  class="image-left"
+                />
+              )}
+              <p>{book.description}</p>
+              {book.imagePosition === "right" && (
+                <img
+                  src="/assets/Elmira-pocetna.jpg"
+                  width="300px"
+                  class="image-right"
+                />
+              )}
+            </div>
 
-          {/* Mobile card */}
-          <div class="mobile-book-card" slot="mobile-content">
-            <img
-              class="mobile-image"
-              src="/assets/Elmira-pocetna.jpg"
-              width="100%"
-            />
-            <h2 class="mobile-title">{book.title}</h2>
-            <p class="mobile-description">{book.description}</p>
-          </div>
-        </Card>
-      </div>
-    ))
-  }
+            {/* Mobile card */}
+            <div class="mobile-book-card-content" slot="mobile-content">
+              <img class="mobile-image" src="/assets/Elmira-pocetna.jpg" />
+              <h2 class="mobile-title">{book.title}</h2>
+            </div>
+            <div class="mobile-back-content" slot="mobile-back-content">
+              <p class="mobile-description">{book.description}</p>
+            </div>
+          </Card>
+        </div>
+      ))
+    }
+  </div>
 </section>
 
 <script src="../scripts/bookObserver.js" defer></script>

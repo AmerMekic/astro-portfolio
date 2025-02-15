@@ -3,11 +3,13 @@
   flex-direction: column;
   color: var(--text-color);
   align-items: start;
-  padding: 1rem 0;
   transition: background-color 0.3s ease;
   border-radius: 10px;
   position: relative;
   overflow: hidden;
+  &:not(:last-child) {
+    margin-bottom: 20px;
+  }
 
   &:hover {
     background-color: rgba(215, 215, 215, 0.214);
@@ -48,4 +50,14 @@
   font-family: var(--font-article);
   color: rgba(62, 62, 62, 0.514);
   letter-spacing: 0.05em;
+}
+
+@media (max-width: 768px) {
+  .article-title {
+    font-size: 1.3rem;
+  }
+
+  .article-date {
+    font-size: 1rem;
+  }
 }

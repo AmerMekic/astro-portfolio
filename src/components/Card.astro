@@ -24,5 +24,10 @@ const { imagePosition, effectBackgroundColor = "grey" }: CardProps =
 </div>
 
 <div class="card mobile-card">
-  <slot name="mobile-content" />
+  <div class="mobile-card-front">
+    <slot name="mobile-content" />
+  </div>
+  <div class="mobile-card-back">
+    <slot name="mobile-back-content" />
+  </div>
 </div>
