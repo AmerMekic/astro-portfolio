@@ -71,17 +71,7 @@
 
 @media (max-width: 768px) {
   .header {
-    display: flex; /* Change from 'none' to 'flex' */
-    position: fixed; /* Change from 'sticky' to 'fixed' */
-    bottom: 0; /* Change from 'top: 0' to 'bottom: 0' */
-    top: unset; /* Remove top positioning */
-    border-top: 2px solid var(--contact-background-color); /* Add top border */
-    border-bottom: none; /* Remove bottom border */
     display: none;
-
-    & .link-item {
-      font-size: 1rem;
-    }
   }
 }
 
@@ -93,12 +83,3 @@
     opacity: 1;
   }
 }
-
-/* @keyframes border-animation {
-  0% {
-    width: 0%;
-  }
-  100% {
-    width: 100%;
-  }
-} */
