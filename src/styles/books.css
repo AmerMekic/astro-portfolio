@@ -2,14 +2,15 @@
   .book-card:hover {
     * {
       color: var(--text-hover-color);
-
-      transition: all 0.3s;
     }
   }
 }
 
 .book-card {
   opacity: 0;
+  * {
+    transition: color 0.3s;
+  }
 }
 
 .book-card-left {
@@ -65,6 +66,10 @@ h2 {
   text-align: right;
 }
 
+.mobile-book-msg {
+  display: none;
+}
+
 @media (max-width: 768px) {
   .section {
     margin-bottom: 50px;
@@ -104,6 +109,14 @@ h2 {
       margin: auto;
       padding: 0 20px;
     }
+
+    & .front-card-icon {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      font-size: 1.5em;
+      color: var(--text-color);
+    }
   }
 
   .mobile-back-content {
@@ -113,6 +126,17 @@ h2 {
       color: var(--text-color);
       font-weight: 400;
     }
+  }
+
+  .mobile-book-msg {
+    display: block;
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 0.8em;
+    font-weight: 400;
+    color: var(--text-color);
+    font-family: var(--font-article);
+    margin-bottom: 20px;
   }
 }
 

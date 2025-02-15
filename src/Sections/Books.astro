@@ -89,6 +89,9 @@ const books = [
     <h1>Knjige</h1>
     <i data-lucide="library-big" class="icon"></i>
   </div>
+  <span class="mobile-book-msg"
+    >(Pritisnite na karticu da je okrenete sa druge strane)</span
+  >
   <div class="mobile-book-card-grid">
     {
       books.map((book) => (
@@ -136,6 +139,7 @@ const books = [
             <div class="mobile-book-card-content" slot="mobile-content">
               <img class="mobile-image" src="/assets/Elmira-pocetna.jpg" />
               <h2 class="mobile-title">{book.title}</h2>
+              <i data-lucide="rotate-ccw" class="front-card-icon" />
             </div>
             <div class="mobile-back-content" slot="mobile-back-content">
               <p class="mobile-description">{book.description}</p>
