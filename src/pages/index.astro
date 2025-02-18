@@ -14,6 +14,28 @@ import {
 ---
 
 <Layout>
+  <div class="background-image" id="background">
+    <style>
+      .background-image {
+        background-color: var(--background-color);
+        position: fixed;
+        height: 100vh;
+        width: 100vw;
+        z-index: -1;
+        overflow: hidden;
+      }
+
+      :global(.book) {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        background-image: url("/assets/book.svg");
+        background-size: contain;
+        background-repeat: no-repeat;
+        opacity: 0.1;
+      }
+    </style>
+  </div>
   <Header />
   <Welcome />
   <Books />
@@ -23,3 +45,66 @@ import {
   <Articles />
   <Contact />
 </Layout>
+
+<script>
+  function isOverlapping(x, y, existingBooks) {
+    const margin = 20; // Minimum space between books
+    const bookSize = 100; // Width/height of books
+
+    for (const book of existingBooks) {
+      const bookRect = book.getBoundingClientRect();
+      if (
+        x < bookRect.right + margin &&
+        x + bookSize > bookRect.left - margin &&
+        y < bookRect.bottom + margin &&
+        y + bookSize > bookRect.top - margin
+      ) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  function createBooks(count) {
+    const container = document.getElementById("background");
+    if (!container) return;
+    const containerWidth = container.offsetWidth;
+    const containerHeight = container.offsetHeight;
+    const existingBooks = [];
+
+    for (let i = 0; i < count; i++) {
+      let attempts = 0;
+      let validPosition = false;
+      let x, y;
+
+      // Try to find non-overlapping position (max 50 attempts)
+      while (!validPosition && attempts < 50) {
+        x = Math.random() * (containerWidth - 100);
+        y = Math.random() * (containerHeight - 100);
+
+        if (!isOverlapping(x, y, existingBooks)) {
+          validPosition = true;
+        }
+        attempts++;
+      }
+
+      // Only create book if we found a valid position
+      if (validPosition) {
+        const book = document.createElement("div");
+        book.className = "book";
+
+        const rotation = Math.random() * 360;
+
+        book.style.left = `${x}px`;
+        book.style.top = `${y}px`;
+        book.style.transform = `rotate(${rotation}deg)`;
+
+        container.appendChild(book);
+        existingBooks.push(book);
+      }
+    }
+  }
+
+  // Create 20 books when the page loads
+  window.addEventListener("load", () => createBooks(20));
+</script>

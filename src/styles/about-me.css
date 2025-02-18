@@ -1,9 +1,10 @@
 .about-me {
   & p {
     letter-spacing: 1px;
+    color: var(--text-color);
   }
   & img {
-    width: 650px;
+    width: 600px;
     float: left;
     margin-right: 30px;
     margin-bottom: 10px;

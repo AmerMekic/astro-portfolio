@@ -34,8 +34,17 @@
     letter-spacing: 1px;
     flex: 1;
     min-width: 250px;
-    text-align: center;
     align-self: center;
+    max-height: 225px;
+    overflow: auto;
+    &::-webkit-scrollbar {
+      width: 5px;
+      border-radius: 10px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: var(--text-color);
+      border-radius: 10px;
+    }
   }
 
   & img {
