@@ -14,14 +14,14 @@
   z-index: 1000;
   background-color: var(--background-color-transparent);
   padding: 1rem;
-  animation: border-animation 0.3s ease-in-out forwards;
 }
 
 .link-container {
   display: flex;
   justify-content: space-between;
   width: 500px;
-  margin: auto;
+  margin-right: calc(50vw - 250px - 150px);
+  margin-left: auto;
 }
 
 .link-item {
@@ -32,9 +32,8 @@
   align-items: center;
   justify-content: center;
   font-size: 1.1rem;
-  transition: margin 0.2s ease-out;
   animation: header-animation 0.5s ease-in forwards;
-  animation-delay: calc(var(--delay) + 0.2s);
+  animation-delay: calc(var(--delay));
   &.active {
     color: rgb(36, 36, 36);
   }

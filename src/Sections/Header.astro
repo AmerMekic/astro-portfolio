@@ -1,4 +1,5 @@
 ---
+import { LanguagePicker } from "../components";
 import "../styles/header.css";
 ---
 
@@ -7,13 +8,39 @@ import "../styles/header.css";
     <i data-lucide="menu"></i>
   </button>
   <div class="link-container">
-    <a class="link-item" href="#books" style="--delay: 0s">Knjige</a>
-    <a class="link-item" href="#about-me" style="--delay: 50ms">O meni</a>
-    <a class="link-item" href="#promotions" style="--delay: 100ms">Promocije</a>
-    <a class="link-item" href="#interviews" style="--delay: 150ms">Intervjui</a>
-    <a class="link-item" href="#articles" style="--delay: 200ms">Članci</a>
+    <a
+      data-translate="header.books"
+      class="link-item"
+      href="#books"
+      style="--delay: 0s">Knjige</a
+    >
+    <a
+      data-translate="header.aboutMe"
+      class="link-item"
+      href="#about-me"
+      style="--delay: 50ms">O meni</a
+    >
+    <a
+      data-translate="header.promotions"
+      class="link-item"
+      href="#promotions"
+      style="--delay: 100ms">Promocije</a
+    >
+    <a
+      data-translate="header.interviews"
+      class="link-item"
+      href="#interviews"
+      style="--delay: 150ms">Intervjui</a
+    >
+    <a
+      data-translate="header.articles"
+      class="link-item"
+      href="#articles"
+      style="--delay: 200ms">Članci</a
+    >
     <div class="underline"></div>
   </div>
+  <LanguagePicker />
 </header>
 
-<script src="../scripts/header.js" defer></script>
+<script type="module" src="../scripts/header.js" defer></script>

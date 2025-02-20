@@ -1,0 +1,55 @@
+.language-picker-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+  width: 150px;
+  height: 30px;
+  padding: 10px;
+  background-color: transparent;
+  border-radius: 20px;
+  animation: language-picker-animation 0.5s ease-in forwards;
+  opacity: 0;
+  animation-delay: 250ms;
+}
+
+.language-picker-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: scale(0.8);
+  transition: transform 0.3s ease-in-out;
+}
+
+.language-picker-button img {
+  width: 25px;
+  object-fit: contain;
+  padding: 1.2px;
+}
+
+.active {
+  transform: scale(1);
+  & img {
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.7);
+    border-radius: 50%;
+  }
+}
+
+@media (max-width: 768px) {
+  .language-picker-container {
+    display: none;
+  }
+}
+
+@keyframes language-picker-animation {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

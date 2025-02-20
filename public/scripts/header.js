@@ -1,45 +1,25 @@
+import { translations } from "../../src/i18n/translations";
+
 const links = document.querySelectorAll(".link-item");
 const underline = document.querySelector(".underline");
 const sections = document.querySelectorAll(".section");
-let isClickScrolling = false;
-
-// Click handlers
-links.forEach((link) => {
-  link.addEventListener("click", function () {
-    isClickScrolling = true;
-    links.forEach((link) => link.classList.remove("active"));
-    this.classList.add("active");
-    underline.style.left = `${this.offsetLeft + this.offsetWidth / 2}px`;
-    underline.style.width = `${this.offsetWidth}px`;
-
-    setTimeout(() => {
-      isClickScrolling = false;
-    }, 500);
-  });
-});
-
 const menuButton = document.querySelector(".menu-button");
 const linkContainer = document.querySelector(".link-container");
+let isClickScrolling = false;
 
-menuButton?.addEventListener("click", () => {
-  linkContainer?.classList.toggle("open");
-});
+// Utility Functions
+function debounce(func, wait) {
+  let timeout;
+  return function executedFunction(...args) {
+    const later = () => {
+      clearTimeout(timeout);
+      func(...args);
+    };
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+  };
+}
 
-// Close menu when clicking a link
-document.querySelectorAll(".link-item").forEach((link) => {
-  link.addEventListener("click", () => {
-    linkContainer?.classList.remove("open");
-  });
-});
-
-// Close menu when clicking outside
-document.addEventListener("click", (e) => {
-  if (!e.target.closest(".header")) {
-    linkContainer?.classList.remove("open");
-  }
-});
-
-// Scroll handler
 function highlightNavOnScroll() {
   if (isClickScrolling) return;
 
@@ -63,21 +43,55 @@ function highlightNavOnScroll() {
   });
 }
 
-// Debounce function
-function debounce(func, wait) {
-  let timeout;
-  return function executedFunction(...args) {
-    const later = () => {
-      clearTimeout(timeout);
-      func(...args);
-    };
-    clearTimeout(timeout);
-    timeout = setTimeout(later, wait);
-  };
+function updateLanguage(lang) {
+  document.querySelectorAll("[data-translate]").forEach((element) => {
+    const key = element.getAttribute("data-translate");
+    const keys = key.split(".");
+    let translation = translations[lang];
+
+    for (const k of keys) {
+      translation = translation?.[k];
+    }
+
+    if (translation) {
+      element.textContent = translation;
+    }
+  });
+
+  localStorage.setItem("preferredLanguage", lang);
 }
 
-// Wrap the scroll handler in a debounce
+// Event Listeners
 const debouncedHighlightNav = debounce(highlightNavOnScroll, 20);
 
-// Add scroll event listener with debounced function
+links.forEach((link) => {
+  link.addEventListener("click", function () {
+    isClickScrolling = true;
+    links.forEach((link) => link.classList.remove("active"));
+    this.classList.add("active");
+    underline.style.left = `${this.offsetLeft + this.offsetWidth / 2}px`;
+    underline.style.width = `${this.offsetWidth}px`;
+
+    setTimeout(() => {
+      isClickScrolling = false;
+    }, 500);
+  });
+});
+
+menuButton?.addEventListener("click", () => {
+  linkContainer?.classList.toggle("open");
+});
+
+document.querySelectorAll(".link-item").forEach((link) => {
+  link.addEventListener("click", () => {
+    linkContainer?.classList.remove("open");
+  });
+});
+
+document.addEventListener("click", (e) => {
+  if (!e.target.closest(".header")) {
+    linkContainer?.classList.remove("open");
+  }
+});
+
 window.addEventListener("scroll", debouncedHighlightNav);

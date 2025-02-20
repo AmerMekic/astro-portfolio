@@ -1,5 +1,5 @@
 :root {
-  --delay: 0.8s;
+  --delay: 0.5s;
 }
 
 .welcome-message {
@@ -43,6 +43,8 @@
   p {
     color: var(--text-color);
     font-weight: 100;
+    animation: picture-animation 0.8s ease-in forwards;
+    animation-delay: var(--delay);
   }
 }
 
