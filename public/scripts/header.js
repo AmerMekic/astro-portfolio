@@ -1,5 +1,3 @@
-import { translations } from "../../src/i18n/translations";
-
 const links = document.querySelectorAll(".link-item");
 const underline = document.querySelector(".underline");
 const sections = document.querySelectorAll(".section");

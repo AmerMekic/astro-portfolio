@@ -1,4 +1,4 @@
-import { translations } from "../../src/i18n/translations";
+import { translations } from "../i18n/translations.js";
 
 function updateLanguage(lang, langTitle) {
   document.querySelectorAll("[data-translate]").forEach((element) => {
