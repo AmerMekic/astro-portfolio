@@ -2,6 +2,9 @@ const links = document.querySelectorAll(".link-item");
 const underline = document.querySelector(".underline");
 const sections = document.querySelectorAll(".section");
 const menuButton = document.querySelector(".menu-button");
+const menuIcon = document.querySelector(".menu-icon");
+
+const mobileMenuContainer = document.querySelector(".mobile-menu-container");
 const linkContainer = document.querySelector(".link-container");
 let isClickScrolling = false;
 
@@ -76,10 +79,6 @@ links.forEach((link) => {
   });
 });
 
-menuButton?.addEventListener("click", () => {
-  linkContainer?.classList.toggle("open");
-});
-
 document.querySelectorAll(".link-item").forEach((link) => {
   link.addEventListener("click", () => {
     linkContainer?.classList.remove("open");
@@ -90,6 +89,20 @@ document.addEventListener("click", (e) => {
   if (!e.target.closest(".header")) {
     linkContainer?.classList.remove("open");
   }
+});
+
+menuButton?.addEventListener("click", () => {
+  mobileMenuContainer?.classList.toggle("hidden");
+  menuIcon?.classList.toggle("active");
+  document.body.classList.toggle("menu-open");
+});
+
+mobileMenuContainer.childNodes.forEach((child) => {
+  child.addEventListener("click", () => {
+    mobileMenuContainer.classList.add("hidden");
+    menuIcon?.classList.remove("active");
+    document.body.classList.remove("menu-open");
+  });
 });
 
 window.addEventListener("scroll", debouncedHighlightNav);

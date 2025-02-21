@@ -66,6 +66,9 @@ a {
   }
 }
 
+.menu-open {
+  overflow: hidden;
+}
 @media (max-width: 1024px) {
   .section {
     width: 90%;
