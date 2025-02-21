@@ -39,12 +39,6 @@
   }
 }
 
-@media (max-width: 768px) {
-  .language-picker-container {
-    display: none;
-  }
-}
-
 @keyframes language-picker-animation {
   from {
     opacity: 0;

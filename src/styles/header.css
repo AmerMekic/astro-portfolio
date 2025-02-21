@@ -69,6 +69,9 @@
   transform: translateY(-50%);
 }
 
+.mobile-header {
+  display: none;
+}
 @media (max-width: 768px) {
   .header {
     display: none;
@@ -76,15 +79,15 @@
 
   .menu-button {
     display: inline;
-    padding-top: 10px;
-    padding-right: 5px;
+    padding-top: 30px;
+    padding-right: 10px;
     z-index: 1000;
     color: var(--text-color);
   }
 
   .menu-icon {
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     & .line {
       stroke: var(--text-color);
       stroke-width: 10;
