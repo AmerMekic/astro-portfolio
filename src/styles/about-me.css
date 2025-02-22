@@ -14,15 +14,84 @@
 
 @media (max-width: 1024px) {
   .about-me {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
     & img {
       width: 100%;
       margin-bottom: 20px;
+      margin-right: 0;
+      float: none;
     }
 
-    & p {
+    & .about-me-text {
       color: var(--text-color);
       font-weight: 400;
       text-align: center;
+      max-height: 100px;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
     }
+
+    & .see-more-icon-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 50px;
+      width: 50px;
+      border-radius: 50%;
+      border: 2px solid var(--text-color);
+      cursor: pointer;
+    }
+
+    & .see-more-icon {
+      color: var(--text-color);
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+      animation: icon-move 1s ease-in-out infinite;
+    }
+
+    & .about-me-text.expanded {
+      max-height: 2000px;
+      transition: max-height 0.3s ease-in;
+      overflow: visible;
+    }
+
+    & .see-more-icon-container.icon-expanded {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+@keyframes icon-move {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-2px);
+  }
+  80% {
+    transform: translateY(2px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes icon-move-out {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(2px);
+  }
+  80% {
+    transform: translateY(-2px);
+  }
+  100% {
+    transform: translateY(0);
   }
 }
