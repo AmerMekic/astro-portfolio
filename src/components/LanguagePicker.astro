@@ -1,8 +1,14 @@
 ---
 import "../styles/language-picker.css";
+
+interface Props {
+  delay?: string;
+}
+
+const { delay } = Astro.props;
 ---
 
-<div class="language-picker-container">
+<div class="language-picker-container" style={`--delay: ${delay}`}>
   <button class="language-picker-button" title="Bosanski">
     <img src="/assets/svgs/bosniaFlag.svg" alt="Bosnia Flag" />
   </button>

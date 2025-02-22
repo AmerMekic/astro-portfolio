@@ -49,12 +49,25 @@ import "../styles/header.css";
     </svg>
   </button>
   <div class="mobile-menu-container hidden">
-    <a data-translate="header.books" href="#books">Knjige</a>
-    <a data-translate="header.aboutMe" href="#about-me">O meni</a>
-    <a data-translate="header.promotions" href="#promotions">Promocije</a>
-    <a data-translate="header.interviews" href="#interviews">Intervjui</a>
-    <a data-translate="header.articles" href="#articles">Članci</a>
-    <LanguagePicker />
+    <a style="--delay: 0s" data-translate="header.books" href="#books">Knjige</a
+    >
+    <a style="--delay: 50ms" data-translate="header.aboutMe" href="#about-me"
+      >O meni</a
+    >
+    <a
+      style="--delay: 100ms"
+      data-translate="header.promotions"
+      href="#promotions">Promocije</a
+    >
+    <a
+      style="--delay: 150ms"
+      data-translate="header.interviews"
+      href="#interviews">Intervjui</a
+    >
+    <a style="--delay: 200ms" data-translate="header.articles" href="#articles"
+      >Članci</a
+    >
+    <LanguagePicker delay="300ms" />
   </div>
 </header>
 <script type="module" src="../scripts/header.js" defer></script>
