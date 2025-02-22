@@ -49,8 +49,9 @@
 
   & img {
     border-radius: 20px;
-    width: 300px;
-    height: auto;
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
   }
 }
 
@@ -85,9 +86,9 @@ h2 {
   }
   .mobile-book-card-grid {
     display: grid;
-    grid-template-columns: repeat(2, calc(50% - 5px));
-    column-gap: 10px;
-    row-gap: 20px;
+    grid-template-columns: repeat(2, calc(50% - 10px));
+    column-gap: 20px;
+    row-gap: 40px;
     margin-bottom: 20px;
   }
 
@@ -101,13 +102,15 @@ h2 {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     position: relative;
     height: 100%;
     transition: all 0.3s;
-    height: 240px;
 
     & .mobile-image {
-      max-width: 100%;
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
       border-radius: 20px;
     }
 
@@ -118,18 +121,11 @@ h2 {
       margin: auto;
       padding: 0 20px;
     }
-
-    & .front-card-icon {
-      position: absolute;
-      bottom: 10px;
-      right: 10px;
-      font-size: 1.5em;
-      color: var(--text-color);
-    }
   }
 
   .mobile-back-content {
     & .mobile-description {
+      text-align: center;
       font-size: 1em;
       font-family: var(--font-article);
       color: var(--text-color);

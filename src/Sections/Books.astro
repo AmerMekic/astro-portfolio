@@ -10,6 +10,13 @@ const colorMap = {
   darkPurple: "#271B4E",
   grey: "#9E9E9E",
   lighterYellow: "#e3ce63",
+  yellowTransparent: "rgba(230, 202, 47, 0.3)",
+  orangeTransparent: "rgba(233, 159, 32, 0.3)",
+  blueTransparent: "rgba(34, 123, 179, 0.3)",
+  purpleTransparent: "rgba(145, 43, 129, 0.3)",
+  darkPurpleTransparent: "rgba(39, 27, 78, 0.3)",
+  greyTransparent: "rgba(158, 158, 158, 0.3)",
+  lighterYellowTransparent: "rgba(227, 206, 99, 0.3)",
 };
 
 function getTextColor(backgroundColor: string) {
@@ -38,7 +45,9 @@ const books = [
       "Ispisuje priču o prijateljstvu koje je na ispitu u svim segmentima priče.Sa svakom pročitanom stranicom knjige utkani su kvaliteti dječaka koji su uspješno položili test zrelosti. Bez obzira na godine malih junaka ova priča može i velike čitatelje poučiti pravim, životnim vrijednostima. Šalje i poruku kako postati i ostati prijatelj.",
     imagePosition: "left",
     color: colorMap.yellow,
+    transparentColor: colorMap.yellowTransparent,
     translationKey: "kamen",
+    image: "Kaldrma.png",
   },
   {
     title: "Kaldrma",
@@ -46,7 +55,9 @@ const books = [
       "U romanu „Kaldrma“ moć prijateljstva se upoznaje kroz likove Damira i Nedima. Knjiga govori o drugarstvu i ljubavi, a sa sobom nosi bitne i velike životne poruke. Ispričana je istinita stvarnost odrastanja koju u svakom momentu nadvladaju ljubav,  snalažljivost i umijeće. “Kaldrma“ je nastavak romana „Kamen“.",
     imagePosition: "right",
     color: colorMap.orange,
+    transparentColor: colorMap.orangeTransparent,
     translationKey: "kaldrma",
+    image: "Kaldrma.png",
   },
   {
     title: "Horozgrad",
@@ -55,6 +66,8 @@ const books = [
     imagePosition: "left",
     color: colorMap.yellow,
     translationKey: "horozgrad",
+    image: "Horozgrad.png",
+    transparentColor: colorMap.yellowTransparent,
   },
   {
     title: "Psi s raskrsnice",
@@ -63,6 +76,8 @@ const books = [
     imagePosition: "right",
     color: colorMap.blue,
     translationKey: "psiSaRaskrsnice",
+    image: "Psi_s_raskrsnice.png",
+    transparentColor: colorMap.blueTransparent,
   },
   {
     title: "Djetinjstvo jednog vremena",
@@ -71,6 +86,8 @@ const books = [
     imagePosition: "left",
     color: colorMap.darkPurple,
     translationKey: "djetinjstvoJednogVremena",
+    image: "Djetinjstvo_jednog_vremena.png",
+    transparentColor: colorMap.darkPurpleTransparent,
   },
   {
     title: "Mačak vegeterijanac & Žaba u štiklama",
@@ -79,6 +96,8 @@ const books = [
     imagePosition: "right",
     color: colorMap.purple,
     translationKey: "macakVegeterijanac",
+    image: "Macak_vegeterijanac.png",
+    transparentColor: colorMap.purpleTransparent,
   },
   {
     title: "Sarajevska priča",
@@ -87,6 +106,8 @@ const books = [
     imagePosition: "left",
     color: colorMap.lighterYellow,
     translationKey: "sarajevskaPrica",
+    image: "Sarajevska_prica.png",
+    transparentColor: colorMap.lighterYellowTransparent,
   },
 ];
 ---
@@ -127,9 +148,10 @@ const books = [
             <div class="card-content" slot="content">
               {book.imagePosition === "left" && (
                 <img
-                  src="/assets/Elmira-pocetna.jpg"
+                  src={`/assets/${book.image}`}
                   width="300px"
                   class="image-left"
+                  style={`background-color: ${book.transparentColor};`}
                 />
               )}
               <p
@@ -138,18 +160,22 @@ const books = [
               />
               {book.imagePosition === "right" && (
                 <img
-                  src="/assets/Elmira-pocetna.jpg"
+                  src={`/assets/${book.image}`}
                   width="300px"
                   class="image-right"
+                  style={`background-color: ${book.transparentColor};`}
                 />
               )}
             </div>
 
             {/* Mobile card */}
             <div class="mobile-book-card-content" slot="mobile-content">
-              <img class="mobile-image" src="/assets/Elmira-pocetna.jpg" />
+              <img
+                class="mobile-image"
+                src={`/assets/${book.image}`}
+                style={`background-color: ${book.transparentColor};`}
+              />
               <h2 class="mobile-title">{book.title}</h2>
-              <i data-lucide="rotate-ccw" class="front-card-icon" />
             </div>
             <div class="mobile-back-content" slot="mobile-back-content">
               <p class="mobile-description">{book.description}</p>

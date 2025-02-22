@@ -82,7 +82,7 @@
     align-items: center;
     justify-content: center;
     transform-style: preserve-3d;
-    height: 240px;
+    height: 260px;
     position: relative;
   }
 
@@ -99,7 +99,7 @@
     height: 90%;
     backface-visibility: hidden;
     transform: rotateY(180deg);
-    padding: 5px 5px 0px 10px;
+    padding: 0px 5px 0px 10px;
     overflow: auto;
   }
 

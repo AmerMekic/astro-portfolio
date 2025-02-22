@@ -22,7 +22,7 @@
     & p {
       color: var(--text-color);
       font-weight: 400;
-      text-align: start;
+      text-align: center;
     }
   }
 }
