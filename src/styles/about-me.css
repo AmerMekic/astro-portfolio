@@ -12,6 +12,9 @@
   }
 }
 
+.see-more-icon-container {
+  display: none;
+}
 @media (max-width: 1024px) {
   .about-me {
     display: flex;
